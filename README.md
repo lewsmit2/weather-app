@@ -1,3 +1,24 @@
+# Weather App
+
+Step 1: Create project:
+
+```
+npx create-react-app weather-app
+```
+
+Step 2: Start app
+
+cd into newly created directory, and start the project by running one of these commands:
+
+```
+npm start
+ //or
+
+yarn start
+```
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
