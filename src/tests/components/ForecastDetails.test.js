@@ -17,26 +17,12 @@ describe("ForecastDetails", () => {
   };
 
   it("renders correctly", () => {
-    const { asFragment } = render(
-      <ForecastDetails
-        date={validProps.date}
-        temperature={validProps.temperature}
-        humidity={validProps.humidity}
-        wind={validProps.wind}
-      />
-    );
+    const { asFragment } = render(<ForecastDetails forecast={validProps} />);
     expect(asFragment()).toMatchSnapshot();
   });
 
   it("renders correct values to props", () => {
-    const { getByText } = render(
-      <ForecastDetails
-        date={validProps.date}
-        temperature={validProps.temperature}
-        humidity={validProps.humidity}
-        wind={validProps.wind}
-      />
-    );
+    const { getByText } = render(<ForecastDetails forecast={validProps} />);
 
     expect(getByText("Thu Jan 01 1970")).toHaveClass("forecast-details__date");
     expect(getByText("Max Temperature: 22°C")).toHaveClass(

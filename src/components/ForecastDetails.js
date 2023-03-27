@@ -2,11 +2,11 @@ import React from "react";
 import "../styles/ForecastDetails.css";
 
 function ForecastDetails({ forecast }) {
-  const formattedDate = new Date(forecast.date).toDateString();
-
   return (
     <div className="forecast-details">
-      <div className="forecast-details__date">{formattedDate}</div>
+      <div className="forecast-details__date">
+        {new Date(forecast.date).toDateString()}
+      </div>
       <div className="forecast-details__temperature-max">
         Max Temperature: {forecast.temperature.max}
         &deg;C
