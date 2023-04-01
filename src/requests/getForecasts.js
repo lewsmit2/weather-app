@@ -4,14 +4,14 @@ const getForecast = (
   searchText,
   setSelectedDate,
   setForecasts,
-  setLocation
+  setLocation,
+  setErrorMessage
 ) => {
   let endpoint = "https://cmd-shift-weather-app.onrender.com/forecast";
 
   if (searchText) {
     endpoint += `?city=${searchText}`;
   }
-  console.log(endpoint);
   return (
     axios
       .get(endpoint)
@@ -21,7 +21,19 @@ const getForecast = (
         setLocation(response.data.location);
       })
       // eslint-disable-next-line no-console
-      .catch((error) => console.log(`Error fetching data: ${error}`))
+      .catch((error) => {
+        const { status } = error.response;
+        if (status === 404) {
+          setErrorMessage("No such town or city, try again!");
+          // eslint-disable-next-line no-console
+          console.error("Location is not valid", error);
+        }
+        if (status === 500) {
+          setErrorMessage("Oops, server error, try again later.");
+          // eslint-disable-next-line no-console
+          console.error("Server error", error);
+        }
+      })
   );
 };
 
