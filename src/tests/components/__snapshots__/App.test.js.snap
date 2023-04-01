@@ -12,8 +12,9 @@ exports[`App renders correctly 1`] = `
       class="search-form"
     >
       <input
+        placeholder="Enter City"
         type="text"
-        value=""
+        value="Manchester"
       />
       <button
         type="submit"

@@ -22,7 +22,8 @@ function App() {
 
   useEffect(() => {
     getForecast(searchText, setSelectedDate, setForecasts, setLocation);
-  }, [searchText]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleCitySearch = () => {
     getForecast(searchText, setSelectedDate, setForecasts, setLocation);
