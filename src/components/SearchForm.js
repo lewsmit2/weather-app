@@ -7,12 +7,13 @@ function SearchForm({ searchText, setSearchText, onSubmit }) {
   return (
     <div className="search-form">
       <input
+        className="search-bar"
         type="text"
         onChange={handleInputChange}
         value={searchText}
         placeholder="Enter City"
       />
-      <button type="submit" onClick={onSubmit}>
+      <button className="search-button" type="submit" onClick={onSubmit}>
         Search
       </button>
     </div>
